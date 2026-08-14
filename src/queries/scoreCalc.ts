@@ -1,11 +1,10 @@
 /**
- * Score calculation utilities with intentional bug in calculateScore
+ * Score calculation utilities
  */
 
 export function calculateScore(correct: number, total: number): { score: number, grade: string } {
-  // Intentional bug: Math.floor(correct/total) * 100 instead of (correct/total) * 100
-  // This causes integer division before multiplication, giving incorrect results
-  const score = Math.floor(correct / total) * 100;
+  // Calculate score as percentage
+  const score = (correct / total) * 100;
   const grade = getLetterGrade(score);
   return { score, grade };
 }
